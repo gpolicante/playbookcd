@@ -6,8 +6,8 @@
 
 - name: copy certificate to volume config
   copy: 
-   src: files/cdcert.pem
-   dest:  "{{docker_dir_volume}}/connect_connectconfig/_data/cdcert.pem"
+   src: "files/{{cdai_localCertFile}}"
+   dest:  "{{docker_dir_volume}}/connect_connectconfig/_data/{{cdai_localCertFile}}" 
    mode: 0666 
 
 
