@@ -1,0 +1,4 @@
+---
+# vars file for connect
+
+docker_dir_volume: /var/lib/docker/volumes

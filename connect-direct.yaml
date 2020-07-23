@@ -1,0 +1,7 @@
+- name: playbook para deploy do connect direct em container
+  hosts: connect
+  become: yes
+  vars_files:
+    - variables.yaml
+  roles: 
+    - connect

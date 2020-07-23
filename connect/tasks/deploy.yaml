@@ -1,0 +1,23 @@
+- name: configure file cd_param and copy to volume config
+  template: 
+    src: templates/cd_param_file
+    dest: "{{docker_dir_volume}}/connect_connectconfig/_data/cd_param_file"
+    mode: 0666
+
+- name: copy certificate to volume config
+  copy: 
+   src: files/cdcert.pem
+   dest:  "{{docker_dir_volume}}/connect_connectconfig/_data/cdcert.pem"
+   mode: 0666 
+
+
+- name: copy compose file to directory 
+  template: 
+    src: templates/compose-template.yaml
+    dest: /srv/connect/docker-compose.yaml
+
+
+- name: docker compose up 
+  shell: docker-compose up -d
+  args:
+    chdir: /srv/connect/

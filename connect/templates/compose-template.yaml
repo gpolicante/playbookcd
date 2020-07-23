@@ -1,0 +1,22 @@
+version: "3.3"
+
+services:
+ cd:
+   image: {{image_name}}:{{image_tag}}
+   restart: always
+   hostname: {{container_hostname}}
+   privileged: true
+   volumes:
+     - connectconfig:/opt/cdfiles
+     - connectunix:/opt/cdunix
+     - connectdata:/opt/dados
+   ports:
+     - 1363:1363
+     - 1364:1364
+     - 80:80
+     - 443:443
+
+volumes:
+  connectunix:
+  connectconfig:
+  connectdata:

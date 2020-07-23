@@ -1,0 +1,8 @@
+cdai_localNodeName={{cdai_localNodeName}}
+cdai_serverPort={{cdai_serverPort}}
+cdai_clientPort={{cdai_clientPort}}
+cdai_localCertFile={{cdai_localCertFile}}
+cdai_localCertPassphrase={{cdai_localCertPassphrase}}
+cdai_keystorePassword={{cdai_keystorePassword}}
+cdai_adminPassword={{cdai_adminPassword}}
+

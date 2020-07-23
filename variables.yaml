@@ -1,0 +1,27 @@
+# create user and password in hub docker to download mage 
+docker_user: 
+docker_pass:  
+# need permission to image 
+image_name: 
+image_tag: 
+
+# create name bucket aws to input and output file application
+bucket_name_data: 
+
+# hostname container 
+container_hostname: 
+
+# role aws to instance managed s3 service aws 
+role_aws_s3_name: 
+
+
+# information cd param file 
+cdai_localNodeName: 
+cdai_serverPort: 1364
+cdai_clientPort: 1363
+# local cert autosign is directory roles/files need create certs 
+cdai_localCertFile: 
+cdai_localCertPassphrase: 
+cdai_keystorePassword: 
+cdai_adminPassword: 
+

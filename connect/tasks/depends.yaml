@@ -1,0 +1,46 @@
+
+- name: install depends debian
+  apt: 
+    name: 
+      - curl 
+      - wget 
+      - vim 
+      - s3fs
+    update_cache: yes 
+  when: ansible_os_family == "Debian"
+
+- name: install depends  centos 
+  yum : 
+    name:
+      - epel-release
+      - curl 
+      - wget 
+      - vim 
+      - s3fs-fuse
+  when: ansible_os_family == "RedHat"
+
+- name: install docker 
+  shell: "curl -fsSL https://get.docker.com | bash"
+
+- name: enable and start service docker 
+  service: 
+    name: docker 
+    state: started
+    enabled: yes 
+
+
+
+- name: install pip3 
+  package: 
+    name:
+     -  python3-pip
+
+
+- name: install docker compose 
+  pip:
+   name:  "{{item }}"
+  with_items: 
+    - docker-compose
+    - docker
+    - awscli
+

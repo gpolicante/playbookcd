@@ -1,0 +1,15 @@
+---
+# tasks file for connect
+
+- name: instalando dependencias 
+  include: depends.yaml
+
+- name: impportanod arquivos e imagens 
+  include: import.yaml
+
+- name: create volume and configure s3fs 
+  include: custom.yaml
+
+- name: deploy application 
+  include: deploy.yaml
+

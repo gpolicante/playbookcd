@@ -1,0 +1,24 @@
+- name: create directory to compose 
+  file: 
+   path: /srv/connect
+   state: directory
+
+- name: create volume docker
+  docker_volume: 
+    name: "{{ item }}"
+  with_items: 
+    - connect_connectconfig
+    - connect_connectunix
+    - connect_connectdata
+
+- name: configure s3fs to volumes and bucket 
+  lineinfile: 
+    path: /etc/fstab
+    line: "{{item}}"
+  with_items: 
+    #  - "{{ bucket_name_config }} {{docker_dir_volume}}/connect_connectconfig/_data/ fuse.s3fs defaults,allow_other,iam_role={{role_aws_s3_name}}  0 0"
+    #  - "{{ bucket_name_unix }} {{docker_dir_volume}}/connect_connectunix/_data/ fuse.s3fs defaults,allow_other,iam_role={{role_aws_s3_name}}      0 0"
+     - "{{ bucket_name_data }} {{docker_dir_volume}}/connect_connectdata/_data/ fuse.s3fs defaults,allow_other,iam_role={{role_aws_s3_name}}      0 0"
+
+- name: execute mount -a 
+  shell: "mount -a"
